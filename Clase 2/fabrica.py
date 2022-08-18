@@ -1,3 +1,10 @@
+"""
+Modificar la clase Carro para que sea genérica
+La fábrica podrá crear diferentes modelos de carros ej: Tsuru, Versa, Sentra
+Cada modelo de carro debe tener una característica única
+No repetir Numeros de serie
+"""
+
 class Carro:
     def __init__(self, pasajeros, asientos, puertas, combustible, modelo, vin):
         self.motor = 1
@@ -15,7 +22,7 @@ class Carro:
         self.vin = vin
         # color
         # caracteristicas
-        
+
 
     def __str__(self):
         return self.modelo
