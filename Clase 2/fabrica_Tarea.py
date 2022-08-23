@@ -84,18 +84,18 @@ class Fabrica():
                 carro.randomColor()
             else:
                 carro.color = color
-            
+            #Agrega en listas
             self.almacen.append(carro)
             #self.almacen[i].vin = self.serial
             self.serial+=1
 
 #Iniciar Fábrica 
 nissan = Fabrica()
-#descripción de carro
+#Planos de modelo
 march_TA = Carro(motorizacion= 2.4, llantas= 4, pasajeros= 5,volante= 1,asientos= 3,puertas= 4,parabrisas= 2,
             combustible= "gasolina",transmision= "estandar",tipo= "hatchback",frenos= 4, modelo= "march")
 
-versa = Carro(motorizacion= 2.4, llantas= 4, pasajeros= 5,volante= 1,asientos= 3,puertas= 4,parabrisas= 2,
+versa = Carro(motorizacion= 2.4, llantas= 5, pasajeros= 5,volante= 1,asientos= 3,puertas= 4,parabrisas= 2,
             combustible= "gasolina",transmision= "automatica",tipo= "sedan",frenos= 4, modelo= "versa")
 
 march_TS = Carro(motorizacion= 2.4, llantas= 4, pasajeros= 5,volante= 1,asientos= 3,puertas= 4,parabrisas= 2,
