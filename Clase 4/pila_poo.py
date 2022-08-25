@@ -3,13 +3,21 @@ class Pila:
         #El encapsulamiento en python se hace con doble guión bajo __
         self.__pila = []
 
+    def set_pila_val(self, val):
+        self.__pila = val
+
+    def get_pila(self):
+        return self.__pila
+
     def push(self, val):
         self.__pila.append(val)
+
 
     def pop(self):
         val = self.__pila[-1]
         del self.__pila[-1]
         return val
+
 
 
 pila = Pila()
