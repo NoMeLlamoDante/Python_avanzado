@@ -1,14 +1,14 @@
 class Pila:
-    pila = None
     def __init__(self):
-        self.pila = []
+        #El encapsulamiento en python se hace con doble guión bajo __
+        self.__pila = []
 
     def push(self, val):
-        self.pila.append(val)
+        self.__pila.append(val)
 
     def pop(self):
-        val = self.pila[-1]
-        del self.pila[-1]
+        val = self.__pila[-1]
+        del self.__pila[-1]
         return val
 
 
@@ -22,7 +22,7 @@ print(pila.pop())
 print(pila.pop())
 print(pila.pop())
 
-#print(len(pila.pila))
+print(len(pila.__pila))
 #pila = []
 #def push(val):
 #    pila.append(val)
