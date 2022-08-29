@@ -18,14 +18,21 @@ class Ventana:
 
     def pintar_ventana(self):
         texto_ventana = []
+
+
         #Creamos la ventana
         for i in range(self.alto):
+
             #Marco Sup e Inferior
             if i == 0 or i == (self.alto -1):
                 texto_ventana.append("*" * self.ancho)
             #Resto de la ventana
             else:
-                texto_ventana.append("*"+str(i%10)*(self.ancho-2)+"*")
+                #Con numero
+                #texto_ventana.append("*"+str(i%10)*(self.ancho-2)+"*")
+                #Con espacios
+                texto_ventana.append("*"+' '*(self.ancho-2)+"*")
+    
         #Recorre Lista de elementos
         for j in range(len(self.elementos)):
             #Obtiene elemento
@@ -36,18 +43,38 @@ class Ventana:
             #posición del elemento
             posX = self.elementos[j][1]
             posY = self.elementos[j][2]
+
+            #Pintamos el elemento
             #Reemplaza prints por el elemento
             for k in range(elemento.alto):
                 #obtiene linea en acorde al indice:
                 linea_original = texto_ventana[posY+k]
+
                 #Marco Superior e inferior
-                if k == 0 or k == (elemento.alto -1):
+                if k == 0 or k == (elemento.alto-1):
                     #Substring Antes de reemplazar
                     linea_de_reemplazo = linea_original[:posX]
                     #reemplazo de texto
                     linea_de_reemplazo+= "*"*elemento.ancho
                     #Substring Posterior
                     linea_de_reemplazo+= linea_original[posX+elemento.ancho:]
+
+                #verificadmos si el elemento puede guardar el texto
+                elif elemento.alto >  2 and elemento.ancho > (len(elemento.texto)+2) and k == elemento.alto // 2:
+                    #Substring Antes de reemplazar
+                    linea_de_reemplazo = linea_original[:posX]
+
+                    espacios_relleno = elemento.ancho - 2 - len(elemento.texto)
+                    #reemplazo de texto
+                    linea_de_reemplazo+= "*"+" "*(espacios_relleno//2) + elemento.texto
+                    #revisa cantidad de espacios
+                    espacios_relleno-= (espacios_relleno//2)
+                    #agrega resto de espacios
+                    linea_de_reemplazo+= " "*espacios_relleno +"*"
+                    #Substring Posterior
+                    linea_de_reemplazo+= linea_original[posX+elemento.ancho:]
+                    pass
+                
                 #Resto del elemento
                 else:
                     #Substring Antes de reemplazar
@@ -95,11 +122,11 @@ class Boton:
 
 
     
-ventana = Ventana(20,12)
-boton_cerrar = Boton(5, 4, 'cerrar')
-boton_abrir = Boton(6, 3, 'abrir')
+ventana = Ventana(150,25)
+boton_cerrar = Boton(10, 5, 'cerrar')
+boton_abrir = Boton(10, 3, 'abrir')
 ventana.agregar_elemento(boton_cerrar,3,4)
-ventana.agregar_elemento(boton_abrir,10,7)
+ventana.agregar_elemento(boton_abrir,20,7)
 ventana.pintar_ventana()
 
 #print(boton_cerrar.obtener_tamanio())
