@@ -122,7 +122,7 @@ class Boton:
 
 
     
-ventana = Ventana(150,25)
+ventana = Ventana(80,25)
 boton_cerrar = Boton(10, 5, 'cerrar')
 boton_abrir = Boton(10, 3, 'abrir')
 ventana.agregar_elemento(boton_cerrar,3,4)
